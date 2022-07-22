@@ -1,10 +1,22 @@
 <script>
-	let name = "Svelte";
+	let name = "";
+	import Teilnehmer from "./Teilnehmer.svelte";
+
+	let teilnehmer = ["Tom", "Max", "Eva"];
+
+	const neuerTeilnehmer = () => {
+		teilnehmer = [...teilnehmer, name];
+		name = "";
+	};
 </script>
 
 <main>
 	<h1>Hello {name}!</h1>
 	<input type="text" bind:value={name} />
+	<button on:click={neuerTeilnehmer}>NEU</button>
+	{#each teilnehmer as person}
+		<Teilnehmer name={person} />
+	{/each}
 </main>
 
 <style>

@@ -1,8 +1,12 @@
 <script>
+    import { scale } from "svelte/transition";
+    export let name;
 </script>
 
 <main>
-    <div class="karte">Tom</div>
+    <div class="karte" transition:scale>
+        {name}
+    </div>
 </main>
 
 <style>
